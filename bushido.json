@@ -1,3 +1,4 @@
 {
-"platform": "html5"
+"platform": "html5",
+"start_page": "index.html"
 }

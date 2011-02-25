@@ -45,18 +45,23 @@
     
     <div id="main">
       <label for="script-count">Script count:</label>
-      <input id="script-count" type="range" min="1" max="3000" value="10" step="100" /><br />
+      <input id="script-count" type="range" min="1" max="1000" value="10" step="10" /><br />
       <label for="script-length">Script Length:</label>
       <input id="script-length" type="range" min="1" max="10" value="2" /><br />
       <label for="browser-count">Browser count:</label>
       <input id="browser-count" type="range" min="2" max="10" value="2" /><br />
       <label for="goal-time">Desired runtime(min):</label>
       <input id="goal-time" type="range" min="5" max="120" value="15" step="10" /><br />
+      <label for="frequency">How many times per week will you run a build?:</label>
+      <input id="frequency" type="range" min="1" max="50" value="5" step="1" /><br />
     </div>
 
     <div id="config">
-      <p>You have <span id="script-count-display">500</span> scripts, each with an average runtime of <span id="script-length-display">2</span> minutes, across <span id="browser-count-display">2</span> browsers, and want them all to complete within <span id="goal-time-display">15</span> minutes.</p></div>
-    <div id="results"><p>Building locally will require <span id="computers-required-display">1</span> computers, with an average annualized cost of $<span id="computer-annualized-cost-display"></span>, with <span id="admins-required-display"></span> dedicated system administrators at a cost of $<span id="admin-cost-display"></span>, totalling $<span id="diy-total-cost-display"></span></p>
+      <p>You have <span id="script-count-display">500</span><br> scripts,
+        each with an average runtime of <span id="script-length-display">2</span> minutes,<br />
+        across <span id="browser-count-display">2</span> browsers,<br />
+        and want them all to complete within <span id="goal-time-display">15</span> minutes.</p></div>
+    <div id="results"><p>Building locally will require <span id="computers-required-display">1</span> computers, with an average annualized cost of $<span id="computer-annualized-cost-display"></span>, with <span id="admins-required-display"></span> dedicated system administrators at a cost of $<span id="admin-cost-display"></span>, and you'll run it all <span id="frequency-display">1</span> times a week, totalling $<span id="diy-total-cost-display"></span></p>
 
       <p>Running on Sauce Labs will do everything above, and far more, for $<span id="ondemand-total-cost-display"></span></p>
 

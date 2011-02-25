@@ -17,6 +17,8 @@ $(document).ready(function() {
         $browserCountDisplay = $("#browser-count-display"),
         $scriptLengthDisplay = $("#script-length-display"),
         $goalTimeDisplay = $("#goal-time-display"),
+        $frequency = $("#frequency"),
+        $frequencyDisplay = $("#frequency-display"),
         $adminSalary = $("#admin-salary"),
         $computersPerAdmin = $("#computers-per-admin"),
         $annualizedComputerCost = $("#annualized-computer-cost");
@@ -48,8 +50,8 @@ $(document).ready(function() {
         return Math.max(1, (scripts * length * browsers))
     };
 
-    var calculateOndemandCost = function(scripts, length, browsers) {
-        return Math.round(calculateTotalMinutes(scripts, length, browsers) * 0.05) * weekdaysPerYear;
+    var calculateOndemandCost = function(scripts, frequency, length, browsers) {
+        return Math.round(calculateTotalMinutes(scripts, length, browsers) * 0.05) * frequency * 52; // 52 weeks in the year
     };
 
     var calculateComputersRequired = function(scripts, length, browsers, goalTime) {
@@ -83,9 +85,10 @@ $(document).ready(function() {
 
         $("#diy-total-cost-display").html(diyTotalCost);
 
-        $("#ondemand-total-cost-display").html(calculateOndemandCost(parseInt($scriptCount.val()), parseInt($scriptLength.val()), parseInt($browserCount.val())));
+        $("#ondemand-total-cost-display").html(calculateOndemandCost(parseInt($scriptCount.val()), parseInt($frequency.val()), parseInt($scriptLength.val()), parseInt($browserCount.val())));
     };
 
+    $frequency.bind('change',    function() { $frequencyDisplay.html($frequency.val());       updateTotalCost();});
     $scriptCount.bind('change',  function() { $scriptCountDisplay.html($scriptCount.val());   updateTotalCost();});
     $browserCount.bind('change', function() { $browserCountDisplay.html($browserCount.val()); updateTotalCost();});
     $scriptLength.bind('change', function() { $scriptLengthDisplay.html($scriptLength.val()); updateTotalCost();});
